@@ -1,16 +1,7 @@
-spring:
-  datasource:
-#数据库地址
-    url: jdbc:mysql://127.0.0.1:3306
-#数据库账号密码
-    username: root
-    password: root
-#驱动类名
-    driver-class-name: com.mysql.jdbc
 #服务端配置
 server:
 #访问端口
-  port: 8081
+  port: 8080
 #访问路径
   context-path: /weyland
 #自定义配置项(对应BasicController中的name和securityCode)

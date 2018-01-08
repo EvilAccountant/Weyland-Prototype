@@ -3,8 +3,11 @@ spring:
 #  active指向启用的配置文件后缀，这里可选develop和product
     active: develop
   datasource:
+  #驱动类名
     driver-class-name: com.mysql.jdbc.Driver
+  #数据库地址
     url: jdbc:mysql://127.0.0.1:3306/weyland-prototype
+  #数据库账号密码
     username: root
     password: root
   jpa:
