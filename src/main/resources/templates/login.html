@@ -9,55 +9,102 @@
         margin: 0px;
         padding: 0px;
     }
-    html,body{
+
+    .login-body {
+        width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-width: 1000px;
     }
-    .login-container{
-        min-width: 800px;
-        background-image: url("../static/image/weyland2.jpg");
+
+    .login-wrapper {
+        width: 100%;
+        height: 100%;
+        background-image: url("../static/image/weyland6.jpg");
+        background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        background-position-x: center;
+        background-position-y: center;
+        position: relative;
+        min-height: 820px;
     }
-    .login-toolbar{
+
+    .login-header {
+        position: absolute;
+        top: 0px;
         height: 60px;
-        background-color: rgba(0,0,0,0.3);
+        width: 100%;
+        line-height: 80px;
+        border-bottom: rgba(255,255,255,.15) 1px solid;
     }
-    .login-body{
-        padding: 74px 0 118px;
+
+    .login-box{
+        min-height: 680px;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+    }
+
+    .login-content {
+        display: inline-block;
+        width: 430px;
+        height: 540px;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        margin:auto;
+        position: absolute;
+        padding: 40px;
+        box-sizing: border-box;/**让元素不被padding撑大*/
+        border-radius: 4px;
+        background-color: rgba(0,0,0,.5);
+    }
+
+    .login-footer {
+        position: absolute;
+        bottom: 5px;
+        height: 80px;
+        line-height: 80px;
+        width: 100%;
+        border-top: rgba(255,255,255,.15) 1px solid;
+    }
+
+    .login-footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0 10px;
+        color: #e9edf2;
         text-align: center;
     }
-    .login-box{
-        width: 990px;
-        margin: auto;
-        position: relative;
-        height: 550px;
-    }
-    .login-module{
-        width: 380px;
-        height: 380px;
-        padding-top: 22px;
-        border: none;
-        position: absolute;
-        right: 0;
-    }
-    .footer{
-        height: 150px;
-        margin-bottom: 0px;
-        background-color: rgba(0,0,0,0.5);
+
+    input{
+
     }
 </style>
 <body>
-    <div class="login-container">
-        <div class="login-toolbar"></div>
-        <div class="login-body">
+    <div class="login-body">
+        <div class="login-wrapper">
+            <div class="login-header"></div>
             <div class="login-box">
-                <div class="login-module">
-
+                <div class="login-content">
+                    <input type="text">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="login-footer">
+                <div class="login-footer-inner">
+                    <p id="copyRight">Copyright © 2012</p>
                 </div>
             </div>
         </div>
-        <div class="footer"></div>
     </div>
+
+<script src="../static/js/login.js"></script>
 </body>
 </html>
