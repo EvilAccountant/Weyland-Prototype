@@ -1,5 +1,8 @@
 package com.weyland.prototype.repository;
 
+import com.weyland.prototype.domain.UserProfile;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  * \* Created with IntelliJ IDEA.
  * \* Creator: LayWin
@@ -8,5 +11,5 @@ package com.weyland.prototype.repository;
  * \
  */
 
-public interface UserProfileDao {
+public interface UserProfileDao extends JpaRepository<UserProfile,String> {
 }

@@ -2,6 +2,7 @@ package com.weyland.prototype.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /**
  * \* Created with IntelliJ IDEA.
@@ -13,8 +14,8 @@ import javax.persistence.Entity;
 @Entity
 public class UserAuth extends BaseEntity{
 
-    @Column(name = "USER_ID")
-    private String userID;
+    @ManyToOne(targetEntity = UserProfile.class)
+    private UserProfile user;
 
     @Column(name = "IDENTITY_TYPE")
     private String identityType;
@@ -25,12 +26,12 @@ public class UserAuth extends BaseEntity{
     @Column(name = "PASS_TOKEN")
     private String passToken;
 
-    public String getUserID() {
-        return userID;
+    public UserProfile getUser() {
+        return user;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUser(UserProfile user) {
+        this.user = user;
     }
 
     public String getIdentityType() {

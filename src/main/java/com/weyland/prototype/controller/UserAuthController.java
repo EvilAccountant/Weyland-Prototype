@@ -1,9 +1,10 @@
 package com.weyland.prototype.controller;
 
 import com.weyland.prototype.domain.UserAuth;
+import com.weyland.prototype.domain.UserProfile;
 import com.weyland.prototype.repository.UserAuthDao;
+import com.weyland.prototype.repository.UserProfileDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,8 @@ public class UserAuthController {
     @Autowired
     private UserAuthDao userAuthDao;
 
+    @Autowired
+    private UserProfileDao userProfileDao;
 
     /**
      * 添加用户
@@ -33,7 +36,12 @@ public class UserAuthController {
     public UserAuth addUser(@RequestParam("identityType") String identityType,
                           @RequestParam("account") String account,
                           @RequestParam("passToken") String passToken) {
+
         UserAuth user = new UserAuth();
+        UserProfile userProfile = new UserProfile();
+        userProfileDao.save(userProfile);
+
+        user.setUser(userProfile);
         user.setIdentityType(identityType);
         user.setAccount(account);
         user.setPassToken(passToken);
@@ -51,6 +59,7 @@ public class UserAuthController {
     @PostMapping(value = "/updateUser")
     public UserAuth updateUser(@RequestParam("account") String account,
                                @RequestParam("passToken") String passToken) {
+
         UserAuth user = userAuthDao.findByAccount(account);
         user.setPassToken(passToken);
         userAuthDao.save(user);

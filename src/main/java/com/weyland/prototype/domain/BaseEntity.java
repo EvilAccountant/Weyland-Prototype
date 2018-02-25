@@ -2,11 +2,9 @@ package com.weyland.prototype.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -30,7 +28,8 @@ public class BaseEntity implements Serializable{
     private String id;
 
     @Column(name = "CREATE_TIME")
-    private LocalDateTime createTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
 
     public String getId() {
         return id;
@@ -40,11 +39,11 @@ public class BaseEntity implements Serializable{
         this.id = id;
     }
 
-    public LocalDateTime getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = LocalDateTime.now();
+    public void setCreateTime(Date createTime) {
+        this.createTime = new Date();
     }
 }
