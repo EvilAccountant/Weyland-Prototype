@@ -60,7 +60,8 @@ public class UserAuthController {
     public UserAuth updateUser(@RequestParam("account") String account,
                                @RequestParam("passToken") String passToken) {
 
-        UserAuth user = userAuthDao.findByAccount(account);
+        UserAuth user = userAuthDao.findUserByAccount(account);
+        System.out.println(user.getCreateTime());
         user.setPassToken(passToken);
         userAuthDao.save(user);
 
@@ -73,6 +74,7 @@ public class UserAuthController {
      */
     @GetMapping(value = "/allUser")
     public List<UserAuth> userList(){
+        System.out.println("< === function executed === >");
         return userAuthDao.findAll();
     }
 

@@ -1,6 +1,8 @@
 package com.weyland.prototype.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -28,7 +30,8 @@ public class BaseEntity implements Serializable{
     private String id;
 
     @Column(name = "CREATE_TIME")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)//存入数据库时间格式
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")//JSON数据下的时间格式
     private Date createTime;
 
     public String getId() {
@@ -44,6 +47,10 @@ public class BaseEntity implements Serializable{
     }
 
     public void setCreateTime(Date createTime) {
-        this.createTime = new Date();
+        this.createTime = createTime;
+    }
+
+    public BaseEntity() {
+        createTime = new Date();
     }
 }
