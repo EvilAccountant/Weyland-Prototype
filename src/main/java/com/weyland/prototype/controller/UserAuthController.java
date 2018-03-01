@@ -32,8 +32,8 @@ public class UserAuthController {
      * @param passToken
      * @return
      */
-    @PostMapping(value = "/addUser")
-    public UserAuth addUser(@RequestParam("identityType") String identityType,
+    @PostMapping(value = "/addUser1")
+    public UserAuth addUser1(@RequestParam("identityType") String identityType,
                           @RequestParam("account") String account,
                           @RequestParam("passToken") String passToken) {
 
@@ -45,6 +45,17 @@ public class UserAuthController {
         user.setIdentityType(identityType);
         user.setAccount(account);
         user.setPassToken(passToken);
+        userAuthDao.save(user);
+
+        return user;
+    }
+
+    @PostMapping(value = "/addUser2")
+    public UserAuth addUser2(UserAuth user) {
+        UserProfile userProfile = new UserProfile();
+        userProfileDao.save(userProfile);
+
+        user.setUser(userProfile);
         userAuthDao.save(user);
 
         return user;
