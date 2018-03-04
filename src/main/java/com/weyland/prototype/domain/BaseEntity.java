@@ -29,7 +29,7 @@ public class BaseEntity implements Serializable{
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "CREATE_TIME")
+    @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)//存入数据库时间格式
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")//JSON数据下的时间格式
     private Date createTime;

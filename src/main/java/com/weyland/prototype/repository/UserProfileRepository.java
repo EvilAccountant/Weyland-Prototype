@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * \
  */
 
-public interface UserProfileDao extends JpaRepository<UserProfile,String> {
+public interface UserProfileRepository extends JpaRepository<UserProfile,String> {
 }

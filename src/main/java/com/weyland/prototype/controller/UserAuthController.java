@@ -2,8 +2,8 @@ package com.weyland.prototype.controller;
 
 import com.weyland.prototype.domain.UserAuth;
 import com.weyland.prototype.domain.UserProfile;
-import com.weyland.prototype.repository.UserAuthDao;
-import com.weyland.prototype.repository.UserProfileDao;
+import com.weyland.prototype.repository.UserAuthRepository;
+import com.weyland.prototype.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +20,10 @@ import java.util.List;
 public class UserAuthController {
 
     @Autowired
-    private UserAuthDao userAuthDao;
+    private UserAuthRepository userAuthRepository;
 
     @Autowired
-    private UserProfileDao userProfileDao;
+    private UserProfileRepository userProfileRepository;
 
     /**
      * 添加用户
@@ -39,13 +39,13 @@ public class UserAuthController {
 
         UserAuth user = new UserAuth();
         UserProfile userProfile = new UserProfile();
-        userProfileDao.save(userProfile);
+        userProfileRepository.save(userProfile);
 
         user.setUser(userProfile);
         user.setIdentityType(identityType);
         user.setAccount(account);
         user.setPassToken(passToken);
-        userAuthDao.save(user);
+        userAuthRepository.save(user);
 
         return user;
     }
@@ -53,10 +53,10 @@ public class UserAuthController {
     @PostMapping(value = "/addUser2")
     public UserAuth addUser2(UserAuth user) {
         UserProfile userProfile = new UserProfile();
-        userProfileDao.save(userProfile);
+        userProfileRepository.save(userProfile);
 
         user.setUser(userProfile);
-        userAuthDao.save(user);
+        userAuthRepository.save(user);
 
         return user;
     }
@@ -71,10 +71,10 @@ public class UserAuthController {
     public UserAuth updateUser(@RequestParam("account") String account,
                                @RequestParam("passToken") String passToken) {
 
-        UserAuth user = userAuthDao.findUserByAccount(account);
+        UserAuth user = userAuthRepository.findUserByAccount(account);
         System.out.println(user.getCreateTime());
         user.setPassToken(passToken);
-        userAuthDao.save(user);
+        userAuthRepository.save(user);
 
         return user;
     }
@@ -86,7 +86,7 @@ public class UserAuthController {
     @GetMapping(value = "/allUser")
     public List<UserAuth> userList(){
         System.out.println("< === function executed === >");
-        return userAuthDao.findAll();
+        return userAuthRepository.findAll();
     }
 
     /**
@@ -95,7 +95,7 @@ public class UserAuthController {
      */
     @DeleteMapping(value = "deleteUser/{id}")
     public void deleteUser(@PathVariable("id") String id){
-        userAuthDao.delete(id);
+        userAuthRepository.delete(id);
     }
 
 }

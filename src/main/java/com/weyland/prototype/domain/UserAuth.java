@@ -17,13 +17,13 @@ public class UserAuth extends BaseEntity{
     @ManyToOne(targetEntity = UserProfile.class)
     private UserProfile user;
 
-    @Column(name = "IDENTITY_TYPE")
+    @Column(name = "identity_type")
     private String identityType;
 
-    @Column(name = "ACCOUNT")
+    @Column(name = "account")
     private String account;
 
-    @Column(name = "PASS_TOKEN")
+    @Column(name = "pass_token")
     private String passToken;
 
     public UserProfile getUser() {

@@ -18,25 +18,25 @@ import javax.persistence.*;
 public class UserProfile extends BaseEntity{
 
     //昵称
-    @Column(name = "USER_NAME")
+    @Column(name = "user_name")
     private String userName;
     //头像
-    @Column(name = "USER_AVATAR")
+    @Column(name = "user_avatar")
     private String userAvatar;
     //出生日期
-    @Column(name = "USER_BIRTH")
+    @Column(name = "user_birth")
     private String userBirth;
     //性别
-    @Column(name = "USER_SEX")
+    @Column(name = "user_sex")
     private String userSex;
     //邮箱
-    @Column(name = "USER_EMAIL")
+    @Column(name = "user_email")
     private String userEmail;
     //电话
-    @Column(name = "USER_PHONE")
+    @Column(name = "user_phone")
     private String userPhone;
     //地址
-    @Column(name = "USER_LOCATION")
+    @Column(name = "user_location")
     private String userLocation;
 
     public String getUserName() {

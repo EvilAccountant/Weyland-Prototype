@@ -74,7 +74,7 @@ public class BasicController {
 //  @PathVariable("myName")必须对应url中的{myName}，而String 后的name则随意
 //  url写为/showName/xxx 或者 /xxx/showName
     public String showYourName(@PathVariable(value = "myName") String name){
-        return "your name is "+name;
+        return "your name is "+ name;
     }
 
 
