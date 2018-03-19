@@ -1,5 +1,7 @@
 package com.weyland.prototype.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  * \* Created with IntelliJ IDEA.
  * \* Creator: LayWin
@@ -8,5 +10,6 @@ package com.weyland.prototype.service;
  * \
  */
 
+@Service
 public class UserAuthService {
 }

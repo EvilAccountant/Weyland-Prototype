@@ -1,48 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Gallery</title>
-    <link rel="stylesheet" href="../static/css/gallery.css">
+    <link rel="stylesheet" href="../static/css/gallery.css" th:href="@{'css/gallery.css'}"/>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{'css/bootstrap.css'}"/>
+    
 </head>
 <body>
 <h1 id="description">Here is the title</h1>
 <div class="mainScreen">
-    <img id="placeHolder" src="" alt="">
+    <img id="placeHolder" src="" />
 </div>
     <ul id="imgGallery">
         <li>
             <a href="../static/image/weyland1.jpg" title="weyland1">
-                <img src="../static/image/weyland1.jpg" alt="weyland1">
+                <img src="../static/image/weyland1.jpg" th:src="@{'image/weyland1.jpg'}" alt="weyland1"/>
             </a>
         </li>
         <li>
             <a href="../static/image/weyland2.jpg" title="weyland2">
-                <img src="../static/image/weyland2.jpg" alt="weyland2">
+                <img src="../static/image/weyland2.jpg" th:src="@{'image/weyland2.jpg'}" alt="weyland2"/>
             </a>
         </li>
         <li>
             <a href="../static/image/weyland3.png" title="weyland3">
-                <img src="../static/image/weyland3.png" alt="weyland3">
+                <img src="../static/image/weyland3.png" th:src="@{'image/weyland3.png'}" alt="weyland3"/>
             </a>
         </li>
         <li>
             <a href="../static/image/weyland4.jpg" title="weyland4">
-                <img src="../static/image/weyland4.jpg" alt="weyland4">
+                <img src="../static/image/weyland4.jpg" th:src="@{'image/weyland4.jpg'}" alt="weyland4"/>
             </a>
         </li>
         <li>
             <a href="../static/image/weyland5.jpg" title="weyland5">
-                <img src="../static/image/weyland5.jpg" alt="weyland5">
+                <img src="../static/image/weyland5.jpg" th:src="@{'image/weyland5.jpg'}" alt="weyland5"/>
             </a>
         </li>
         <li>
             <a href="../static/image/weyland6.jpg" title="weyland6">
-                <img src="../static/image/weyland6.jpg" alt="weyland6">
+                <img src="../static/image/weyland6.jpg" th:src="@{'image/weyland6.jpg'}" alt="weyland6"/>
             </a>
         </li>
     </ul>
 
-<script src="../static/js/gallery.js"></script>
+<script src="../static/js/gallery.js" th:src="@{'js/gallery.js'}" th:inline="javascript"></script>
 </body>
 </html>

@@ -39,6 +39,7 @@ public class UserAuthController {
 
         UserAuth user = new UserAuth();
         UserProfile userProfile = new UserProfile();
+        userProfile.setUserName(account);
         userProfileRepository.save(userProfile);
 
         user.setUser(userProfile);
@@ -53,6 +54,7 @@ public class UserAuthController {
     @PostMapping(value = "/addUser2")
     public UserAuth addUser2(UserAuth user) {
         UserProfile userProfile = new UserProfile();
+        userProfile.setUserName(user.getAccount());
         userProfileRepository.save(userProfile);
 
         user.setUser(userProfile);
@@ -72,7 +74,6 @@ public class UserAuthController {
                                @RequestParam("passToken") String passToken) {
 
         UserAuth user = userAuthRepository.findUserByAccount(account);
-        System.out.println(user.getCreateTime());
         user.setPassToken(passToken);
         userAuthRepository.save(user);
 

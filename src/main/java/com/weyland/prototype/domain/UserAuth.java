@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 public class UserAuth extends BaseEntity{
 
     @ManyToOne(targetEntity = UserProfile.class)
-    private UserProfile user;
+    private UserProfile userProfile;
 
     @Column(name = "identity_type")
     private String identityType;
@@ -26,12 +26,12 @@ public class UserAuth extends BaseEntity{
     @Column(name = "pass_token")
     private String passToken;
 
-    public UserProfile getUser() {
-        return user;
+    public UserProfile getUserProfile() {
+        return userProfile;
     }
 
-    public void setUser(UserProfile user) {
-        this.user = user;
+    public void setUser(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 
     public String getIdentityType() {

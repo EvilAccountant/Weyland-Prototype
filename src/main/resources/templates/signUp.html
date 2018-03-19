@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Weyland-Login</title>
-    <link rel="stylesheet" href="../static/css/signUp.css">
+    <title>Weyland-SiguUp</title>
+    <link rel="stylesheet" href="../static/css/signUp.css" th:href="@{'css/signUp.css'}"/>
 </head>
 <body>
     <div class="login-body">
@@ -12,11 +12,11 @@
             <div class="login-box">
                 <div class="login-content">
                     <div class="login-title"></div>
-                    <input type="text" placeholder="userName">
-                    <input type="text" placeholder="e-mail address">
-                    <input type="text" placeholder="password">
-                    <input type="text" placeholder="password again">
-                    <button class="login-btn">CREATE AN ACCOUNT</button>
+                    <input id="userName" type="text" placeholder="userName"/>
+                    <input id="account" type="text" placeholder="e-mail address"/>
+                    <input id="passToken" type="text" placeholder="password"/>
+                    <input id="passwordCheck" type="text" placeholder="password again"/>
+                    <button class="login-btn" onclick="signUpVerify()">CREATE AN ACCOUNT</button>
                     <a href="login.html">Already have an account?Here to sign in.</a>
                 </div>
             </div>
@@ -27,7 +27,39 @@
             </div>
         </div>
     </div>
-
-    <script src="../static/js/login.js"></script>
+    
+    <script src="../static/js/jquery/jquery-3.2.1.js" th:src="${'js/jquery-3.2.1.js'}"></script>
+    <script src="../static/js/login.js" th:src="${'js/login.js'}"></script>
+    <script>
+        function signUpVerify() {
+            debugger;
+            var userName = $("#userName").val();
+            var account = $("#account").val();
+            var passToken = $("#passToken").val();
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'signUpVerify',
+                data: {
+                    userName : userName ,
+                    account : account ,
+                    passToken : passToken
+                },
+                cache: false,
+                async: true,
+                success: function (data) {
+                    debugger;
+                    console.log(data);
+                    //当dataType为json时，可直接用data
+                    alert(data.message);
+                    /*
+                    当dataType为text时，须用json格式化data
+                    var dataObj = JSON.parse(data);
+                    alert(dataObj.message);
+                    */
+                }
+            });
+        }
+    </script>
 </body>
 </html>
